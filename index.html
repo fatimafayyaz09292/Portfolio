@@ -1,0 +1,1671 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="Fatima Fayyaz's IT portfolio featuring academic projects, technical skills and education.">
+
+    <meta name="theme-color" content="#FAF7F2">
+
+    <title>Fatima Fayyaz | IT Portfolio</title>
+
+    <style>
+        /* ========================================
+           1. COLOURS AND GENERAL SETTINGS
+        ======================================== */
+
+        :root {
+            --background: #FAF7F2;
+            --surface: #FFFDF9;
+            --beige: #E8DED0;
+            --beige-light: #F1E9DE;
+            --taupe: #8B735B;
+            --brown: #3B3028;
+            --text: #3F3832;
+            --muted: #786F66;
+            --border: #E6DED3;
+            --sage: #747B68;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: var(--background);
+            color: var(--text);
+            line-height: 1.7;
+            min-height: 100vh;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        a:focus-visible,
+        button:focus-visible {
+            outline: 3px solid var(--taupe);
+            outline-offset: 4px;
+        }
+
+        button {
+            font: inherit;
+        }
+
+        .container {
+            width: min(1100px, 90%);
+            margin: 0 auto;
+        }
+
+        .section {
+            padding: 75px 0;
+            min-height: 70vh;
+        }
+
+        .section-light {
+            background: var(--surface);
+        }
+
+        .section-heading {
+            max-width: 700px;
+            margin-bottom: 35px;
+        }
+
+        .eyebrow {
+            color: var(--sage);
+            font-size: 0.78rem;
+            font-weight: bold;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        h1, h2, h3 {
+            color: var(--brown);
+            line-height: 1.3;
+        }
+
+        h2 {
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            margin: 10px 0 14px;
+        }
+
+        .section-heading > p:last-child {
+            color: var(--muted);
+        }
+
+        .muted {
+            color: var(--muted);
+        }
+
+        /* ========================================
+           2. HEADER AND NAVIGATION
+        ======================================== */
+
+        .navbar {
+            background: var(--surface);
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-inner {
+            min-height: 72px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .logo {
+            color: var(--brown);
+            font-size: 1.15rem;
+            font-weight: bold;
+            letter-spacing: 1px;
+            white-space: nowrap;
+        }
+
+        .logo span {
+            color: var(--taupe);
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 22px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            display: inline-block;
+            color: var(--text);
+            font-size: 0.9rem;
+            font-weight: bold;
+            padding: 8px 0;
+            border-bottom: 2px solid transparent;
+            transition: color 0.2s, border-color 0.2s;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active-link {
+            color: var(--sage);
+            border-bottom-color: var(--taupe);
+        }
+
+        .menu-button {
+            display: none;
+            background: var(--surface);
+            color: var(--brown);
+            border: 1px solid var(--border);
+            border-radius: 7px;
+            padding: 8px 12px;
+            cursor: pointer;
+        }
+
+        /* ========================================
+           3. SECTION NAVIGATION BEHAVIOUR
+        ======================================== */
+
+        .page-view {
+            display: none;
+        }
+
+        .page-view.active {
+            display: block;
+            animation: appear 0.25s ease;
+        }
+
+        @keyframes appear {
+            from {
+                opacity: 0;
+                transform: translateY(5px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ========================================
+           4. BUTTONS
+        ======================================== */
+
+        .button {
+            display: inline-block;
+            padding: 12px 20px;
+            border: 1px solid var(--taupe);
+            border-radius: 7px;
+            font-size: 0.93rem;
+            font-weight: bold;
+            text-align: center;
+            cursor: pointer;
+            transition: background 0.2s, color 0.2s;
+        }
+
+        .button-primary {
+            background: var(--brown);
+            color: var(--surface);
+            border-color: var(--brown);
+        }
+
+        .button-primary:hover {
+            background: #514236;
+        }
+
+        .button-outline {
+            background: transparent;
+            color: var(--brown);
+        }
+
+        .button-outline:hover {
+            background: var(--beige-light);
+        }
+
+        .button-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 25px;
+        }
+
+        /* ========================================
+           5. HOME PAGE
+        ======================================== */
+
+        .hero {
+            min-height: 76vh;
+            display: flex;
+            align-items: center;
+            padding: 75px 0;
+            background:
+                radial-gradient(
+                    circle at 88% 15%,
+                    var(--beige) 0,
+                    transparent 35%
+                ),
+                var(--surface);
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.5fr 0.8fr;
+            align-items: center;
+            gap: 55px;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 6vw, 4.2rem);
+            letter-spacing: -1.5px;
+            margin: 12px 0 18px;
+        }
+
+        .hero h1 span {
+            color: var(--taupe);
+        }
+
+        .hero-description {
+            max-width: 620px;
+            color: var(--muted);
+            font-size: 1.05rem;
+        }
+
+        .hero-note {
+            margin-top: 20px;
+            font-size: 0.88rem;
+            color: var(--muted);
+        }
+
+        .profile-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 30px;
+            box-shadow: 0 15px 40px rgba(59, 48, 40, 0.07);
+        }
+
+        .profile-mark {
+            width: 78px;
+            height: 78px;
+            display: grid;
+            place-items: center;
+            background: var(--beige-light);
+            color: var(--brown);
+            border-radius: 14px;
+            font-size: 1.8rem;
+            font-weight: bold;
+            margin-bottom: 22px;
+        }
+
+        .profile-card h2 {
+            font-size: 1.35rem;
+            margin: 0 0 8px;
+        }
+
+        .profile-card p {
+            color: var(--muted);
+            font-size: 0.95rem;
+        }
+
+        .profile-label {
+            display: inline-block;
+            margin-top: 18px;
+            padding: 6px 10px;
+            background: var(--beige-light);
+            color: var(--brown);
+            border-radius: 5px;
+            font-size: 0.8rem;
+        }
+
+        /* ========================================
+           6. ABOUT PAGE
+        ======================================== */
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 35px;
+        }
+
+        .about-text p {
+            margin-bottom: 16px;
+            color: var(--muted);
+        }
+
+        .info-card {
+            background: var(--background);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 25px;
+        }
+
+        .info-card h3 {
+            margin-bottom: 15px;
+        }
+
+        .info-list {
+            list-style: none;
+        }
+
+        .info-list li {
+            padding: 11px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .info-list li:last-child {
+            border-bottom: none;
+        }
+
+        .info-list strong {
+            display: block;
+            color: var(--brown);
+            font-size: 0.9rem;
+        }
+
+        .info-list span {
+            color: var(--muted);
+            font-size: 0.9rem;
+        }
+
+        /* ========================================
+           7. SKILLS PAGE
+        ======================================== */
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .skill-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 25px;
+        }
+
+        .skill-card h3 {
+            font-size: 1.05rem;
+            margin-bottom: 16px;
+        }
+
+        .tag-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .tag {
+            display: inline-block;
+            background: var(--beige-light);
+            color: #514236;
+            padding: 6px 10px;
+            border-radius: 5px;
+            font-size: 0.81rem;
+            font-weight: bold;
+        }
+
+        .skill-note {
+            margin-top: 24px;
+            color: var(--muted);
+            font-size: 0.9rem;
+        }
+
+        /* ========================================
+           8. PROJECTS PAGE
+        ======================================== */
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 22px;
+        }
+
+        .project-card {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 27px;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(59, 48, 40, 0.07);
+        }
+
+        .project-number {
+            display: inline-block;
+            margin-bottom: 16px;
+            padding: 7px 11px;
+            background: var(--beige);
+            color: var(--brown);
+            border-radius: 5px;
+            font-size: 0.82rem;
+            font-weight: bold;
+        }
+
+        .project-type {
+            color: var(--sage);
+            font-size: 0.8rem;
+            font-weight: bold;
+            margin-bottom: 9px;
+        }
+
+        .project-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 12px;
+        }
+
+        .project-card p {
+            color: var(--muted);
+            font-size: 0.93rem;
+            margin-bottom: 16px;
+        }
+
+        .project-card .tag-list {
+            margin-bottom: 18px;
+        }
+
+        .project-link {
+            margin-top: auto;
+            padding-top: 8px;
+            color: #65503C;
+            font-size: 0.92rem;
+            font-weight: bold;
+        }
+
+        .project-link:hover {
+            text-decoration: underline;
+        }
+
+        .project-note {
+            margin-top: 25px;
+            padding: 18px;
+            background: var(--beige-light);
+            border-left: 4px solid var(--taupe);
+            border-radius: 0 7px 7px 0;
+            color: var(--text);
+            font-size: 0.92rem;
+        }
+
+        /* ========================================
+           9. EDUCATION PAGE
+        ======================================== */
+
+        .education-list {
+            display: grid;
+            gap: 18px;
+        }
+
+        .education-item {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 24px 25px;
+        }
+
+        .education-date {
+            display: inline-block;
+            margin-bottom: 8px;
+            color: var(--sage);
+            font-size: 0.85rem;
+            font-weight: bold;
+        }
+
+        .education-item h3 {
+            font-size: 1.08rem;
+            margin-bottom: 7px;
+        }
+
+        .education-item p {
+            color: var(--muted);
+            font-size: 0.93rem;
+        }
+
+        /* ========================================
+           10. CONTACT PAGE
+        ======================================== */
+
+        .contact-box {
+            background: var(--brown);
+            color: var(--surface);
+            border-radius: 14px;
+            padding: 45px;
+            text-align: center;
+        }
+
+        .contact-box .eyebrow {
+            color: #D8C6AD;
+        }
+
+        .contact-box h2 {
+            color: var(--surface);
+        }
+
+        .contact-box > p {
+            max-width: 620px;
+            margin: 0 auto;
+            color: #F0E7DC;
+        }
+
+        .contact-box .button-primary {
+            background: var(--beige);
+            color: var(--brown);
+            border-color: var(--beige);
+        }
+
+        .contact-box .button-primary:hover {
+            background: #D9C9B6;
+        }
+
+        .contact-box .button-outline {
+            color: var(--surface);
+            border-color: #D8C6AD;
+        }
+
+        .contact-box .button-outline:hover {
+            background: #514236;
+        }
+
+        .contact-details {
+            margin-top: 22px !important;
+            font-size: 0.9rem;
+            overflow-wrap: anywhere;
+        }
+
+        .contact-details a {
+            text-decoration: underline;
+            text-underline-offset: 3px;
+        }
+
+        /* ========================================
+           11. FOOTER
+        ======================================== */
+
+        .home-footer {
+            display: none;
+            background: var(--surface);
+            border-top: 1px solid var(--border);
+            padding: 23px 0;
+            text-align: center;
+            color: var(--muted);
+            font-size: 0.85rem;
+        }
+
+        .home-footer.active {
+            display: block;
+        }
+
+        /* ========================================
+           12. TABLET RESPONSIVENESS
+        ======================================== */
+
+        @media (max-width: 850px) {
+            .hero-grid,
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-grid {
+                gap: 35px;
+            }
+
+            .skills-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .nav-links {
+                gap: 14px;
+            }
+        }
+
+        /* ========================================
+           13. MOBILE RESPONSIVENESS
+        ======================================== */
+
+        @media (max-width: 650px) {
+            .container {
+                width: 90%;
+            }
+
+            .section {
+                padding: 55px 0;
+            }
+
+            .hero {
+                min-height: auto;
+                padding: 65px 0;
+            }
+
+            .nav-inner {
+                min-height: 66px;
+                flex-wrap: wrap;
+                padding: 12px 0;
+            }
+
+            .menu-button {
+                display: inline-block;
+            }
+
+            .nav-links {
+                display: none;
+                width: 100%;
+                flex-direction: column;
+                align-items: stretch;
+                gap: 0;
+                padding: 8px 0;
+            }
+
+            .nav-links.open {
+                display: flex;
+            }
+
+            .nav-links li,
+            .nav-links a {
+                width: 100%;
+            }
+
+            .nav-links a {
+                display: block;
+                padding: 11px 0;
+            }
+
+            .skills-grid,
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-box {
+                padding: 30px 20px;
+            }
+
+            .button-row .button {
+                text-align: center;
+            }
+        }
+
+        /* ========================================
+           14. REDUCED MOTION
+        ======================================== */
+
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+        
+        /* Extra protection for very small mobile screens */
+        @media (max-width: 380px) {
+            .logo {
+                font-size: 0.95rem;
+                letter-spacing: 0.5px;
+            }
+
+            .hero h1 {
+                font-size: clamp(2rem, 10vw, 2.5rem);
+                letter-spacing: -0.8px;
+                overflow-wrap: anywhere;
+            }
+
+            .profile-card {
+                padding: 22px;
+            }
+
+            .button-row .button {
+                width: 100%;
+            }
+
+            .skill-card,
+            .project-card,
+            .education-item {
+                padding: 20px;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <!-- HEADER: SHOWN ON ALL SECTION VIEWS -->
+
+    <header class="navbar">
+        <nav class="container nav-inner" aria-label="Main navigation">
+
+            <a class="logo" href="#home" data-page="home">
+                NOOR FATIMA<span>.</span>
+            </a>
+
+            <button
+                class="menu-button"
+                id="menuButton"
+                type="button"
+                aria-controls="navLinks"
+                aria-expanded="false">
+                Menu
+            </button>
+
+            <ul class="nav-links" id="navLinks">
+                <li>
+                    <a href="#home" data-page="home"
+                       class="active-link" aria-current="page">Home</a>
+                </li>
+                <li>
+                    <a href="#about" data-page="about">About</a>
+                </li>
+                <li>
+                    <a href="#skills" data-page="skills">Skills</a>
+                </li>
+                <li>
+                    <a href="#projects" data-page="projects">Projects</a>
+                </li>
+                <li>
+                    <a href="#education" data-page="education">Education</a>
+                </li>
+                <li>
+                    <a href="#contact" data-page="contact">Contact</a>
+                </li>
+            </ul>
+
+        </nav>
+    </header>
+
+    <main>
+
+        <!-- HOME VIEW -->
+
+        <section class="page-view active" id="home">
+
+            <div class="hero">
+                <div class="container hero-grid">
+
+                    <div>
+                        <p class="eyebrow">
+                            Professional Portfolio
+                        </p>
+
+                        <h1>
+                            Fatima Fayyaz
+                        </h1>
+
+                        <p class="hero-description">
+                            I’m an Information Technology student at Middlesex University Dubai with a strong interest in software development, data-driven solutions, and emerging technologies. Through hands-on academic projects, I bring together technical problem-solving, analytical thinking, and a practical approach to building meaningful digital solutions.
+                        </p>
+
+                        <div class="button-row">
+                            <a class="button button-primary"
+                               href="#projects" data-page="projects">
+                                Explore My Projects
+                            </a>
+
+                            <a class="button button-outline"
+                               href="#about" data-page="about">
+                                About Me
+                            </a>
+                        </div>
+
+                        <p class="hero-note">
+                            BSc (Hons) Information Technology — Top-Up
+                            <br>
+                            Expected completion: April 2027
+                        </p>
+                    </div>
+
+                    <aside class="profile-card">
+                        <div class="profile-mark" aria-hidden="true">
+                            FF
+                        </div>
+
+                        <h2>IT Student</h2>
+
+                        <p>
+                            Interested in technology, problem-solving,
+                            software development and continuous learning.
+                        </p>
+
+                        <span class="profile-label">
+                            Dubai, United Arab Emirates
+                        </span>
+                    </aside>
+
+                </div>
+            </div>
+
+        </section>
+
+        <!-- ABOUT VIEW -->
+
+        <section class="section section-light page-view" id="about">
+            <div class="container">
+
+                <div class="section-heading">
+                    <p class="eyebrow">About Me</p>
+                    <h2>A little about my background</h2>
+                    <p>
+                        My education, interests and approach to learning.
+                    </p>
+                </div>
+
+                <div class="about-grid">
+
+                    <div class="about-text">
+                        <p>
+                            I am pursuing a BSc (Hons) in Information
+                            Technology at Middlesex University Dubai
+                            after completing a Higher National Diploma
+                            in Computing at The University of Faisalabad.
+                        </p>
+
+                        <p>
+                            My academic work has covered programming,
+                            web technologies, databases, networking,
+                            software design and data analysis. Through
+                            these projects, I have practised technical
+                            concepts and developed my problem-solving skills.
+                        </p>
+
+                        <p>
+                            I am building this portfolio to demonstrate
+                            my academic work, technical skills and
+                            continued development. I am interested in
+                            entry-level opportunities where I can
+                            contribute, learn and grow professionally.
+                        </p>
+                    </div>
+
+                    <aside class="info-card">
+                        <h3>Quick Information</h3>
+
+                        <ul class="info-list">
+                            <li>
+                                <strong>Field</strong>
+                                <span>Information Technology</span>
+                            </li>
+                            <li>
+                                <strong>Current Study</strong>
+                                <span>BSc (Hons) IT — Top-Up</span>
+                            </li>
+                            <li>
+                                <strong>Location</strong>
+                                <span>Dubai, UAE</span>
+                            </li>
+                            <li>
+                                <strong>Languages</strong>
+                                <span>English and Urdu</span>
+                            </li>
+                        </ul>
+                    </aside>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- SKILLS VIEW -->
+
+        <section class="section page-view" id="skills">
+            <div class="container">
+
+                <div class="section-heading">
+                    <p class="eyebrow">Technical Skills</p>
+                    <h2>Tools, technologies and computing knowledge</h2>
+                    <p>
+                        Technical skills and academic areas covered through
+                        my studies and coursework. My practical experience
+                        varies by technology and subject.
+                    </p>
+                </div>
+
+                <div class="skills-grid">
+
+                <!-- 1. Programming Languages -->
+                <article class="skill-card">
+                    <h3>Programming Languages</h3>
+                    <div class="tag-list">
+                        <span class="tag">C++</span>
+                        <span class="tag">Python</span>
+                        <span class="tag">JavaScript</span>
+                        <span class="tag">CLIPS(Rule-Based Programming)</span>
+                    </div>
+                </article>
+
+                <!-- 2. Web Technologies -->
+                <article class="skill-card">
+                    <h3>Web Technologies</h3>
+                    <div class="tag-list">
+                        <span class="tag">HTML</span>
+                        <span class="tag">CSS</span>
+                        <span class="tag">Vue.js</span>
+                        <span class="tag">Website Design and Development</span>
+                        <span class="tag">Web Applications and Databases</span>
+                        <span class="tag">Stack Development</span>
+                    </div>
+                </article>
+
+                <!-- 3. Database Technologies -->
+                <article class="skill-card">
+                    <h3>Database Technologies</h3>
+                    <div class="tag-list">
+                        <span class="tag">SQL</span>
+                        <span class="tag">MongoDB</span>
+                        <span class="tag">Database Design</span>
+                        <span class="tag">Database Development</span>
+                        <span class="tag">Data Modelling</span>
+                    </div>
+                </article>
+
+                <!-- 4. Development Tools -->
+                <article class="skill-card">
+                    <h3>Development Tools</h3>
+                    <div class="tag-list">
+                        <span class="tag">Visual Studio Code</span>
+                        <span class="tag">Postman</span>
+                        <span class="tag">Git</span>
+                        <span class="tag">GitHub</span>
+                        <span class="tag">Jupyter Notebook</span>
+                        <span class="tag">Arduino IDE</span>
+                        <span class="tag">Cisco Packet Tracer</span>
+                    </div>
+                </article>
+
+                <!-- 5. Backend Development -->
+                <article class="skill-card">
+                    <h3>Backend Development</h3>
+                    <div class="tag-list">
+                        <span class="tag">Node.js</span>
+                        <span class="tag">Express.js</span>
+                        <span class="tag">REST APIs</span>
+                        <span class="tag">Server-Side Development</span>
+                        <span class="tag">API Testing</span>
+                    </div>
+                </article>
+
+                <!-- 6. Software Engineering -->
+                <article class="skill-card">
+                    <h3>Software Engineering</h3>
+                    <div class="tag-list">
+                        <span class="tag">Application Development</span>
+                        <span class="tag">Software Development Life Cycle (SDLC)</span>
+                        <span class="tag">Data Structures and Algorithms</span>
+                        <span class="tag">Software Design</span>
+                        <span class="tag">Systems Analysis</span>
+                        <span class="tag">Problem-Solving</span>
+                    </div>
+                </article>
+
+                <!-- 7. Data Science and Emerging Technologies -->
+                <article class="skill-card">
+                    <h3>Data Science and Emerging Technologies</h3>
+                    <div class="tag-list">
+                        <span class="tag">Data Science</span>
+                        <span class="tag">Machine Learning</span>
+                        <span class="tag">Artificial Intelligence (AI)</span>
+                        <span class="tag">Internet of Things (IoT)</span>
+                        <span class="tag">Pandas</span>
+                        <span class="tag">NumPy</span>
+                        <span class="tag">Scikit-learn</span>
+                    </div>
+                </article>
+
+                <!-- 8. Core Computing Knowledge -->
+                <article class="skill-card">
+                    <h3>Core Computing Knowledge</h3>
+                    <div class="tag-list">
+                        <span class="tag">Operating Systems</span>
+                        <span class="tag">Networking</span>
+                        <span class="tag">Network Management</span>
+                        <span class="tag">IP Addressing</span>
+                        <span class="tag">Network Troubleshooting</span>
+                        <span class="tag">Security</span>
+                        <span class="tag">Security Concepts</span>
+                    </div>
+                </article>
+
+                <!-- 9. Information Systems and Business -->
+                <article class="skill-card">
+                    <h3>Information Systems and Business</h3>
+                    <div class="tag-list">
+                        <span class="tag">Information Systems Analysis and Design</span>
+                        <span class="tag">Business Process Support</span>
+                        <span class="tag">Compliance</span>
+                        <span class="tag">Professional Practice</span>
+                        <span class="tag">Professional Project Management</span>
+                    </div>
+                </article>
+
+                <!-- 10. Project and Research Skills -->
+                <article class="skill-card">
+                    <h3>Project and Research Skills</h3>
+                    <div class="tag-list">
+                        <span class="tag">Planning a Computing Project</span>
+                        <span class="tag">Computing Research Project</span>
+                        <span class="tag">Research Skills</span>
+                        <span class="tag">Project Planning</span>
+                        <span class="tag">Professional Project Management</span>
+                    </div>
+                </article>
+
+            </div>
+
+            <p class="skill-note">
+                These areas reflect my academic learning and technical
+                development. Practical proficiency varies, and relevant
+                projects can be explored in the Projects section.
+             </p>
+
+         </div>
+    </section>
+
+        <!-- PROJECTS VIEW -->
+
+        <section class="section section-light page-view" id="projects">
+            <div class="container">
+
+                <div class="section-heading">
+                    <p class="eyebrow">Technical Projects</p>
+                    <h2>Technical Projects</h2>
+                    <p>
+                        Academic projects covering web development, networking,
+                        software engineering, data science, IoT, business analysis
+                        and computing research.
+                    </p>
+                </div>
+
+                <div class="projects-grid">
+
+                    <!-- PROJECT 1 -->
+
+                    <article class="project-card" style="grid-column: 1 / -1;">
+                        <span class="project-number">PROJECT 1</span>
+                        <h3>WEB DEVELOPMENT, APPLICATIONS &amp; DATABASES</h3>
+
+                        <div class="project-note">
+                            <h3>1. Pak Tours — Travel and Tourism Website</h3>
+                            <p><strong>Area:</strong> Application Development</p>
+                            <p><strong>Technologies:</strong> ?</p>
+                            <ul>
+                                <li>Developed a travel and tourism website inspired by online booking platforms such as Booking.com, with frontend and backend components.</li>
+                                <li>Designed the application around travel-related services and booking functionality.</li>
+                                <li>Applied application development principles to structure the website and connect its frontend and backend components.</li>
+                            </ul>
+                        </div>
+
+                        <div class="project-note">
+                            <h3>2. GreenTech Innovations — Corporate Website</h3>
+                            <p><strong>Area:</strong> Website Design &amp; Development</p>
+                            <p><strong>Technologies:</strong> HTML, CSS, JavaScript</p>
+                            <ul>
+                                <li>Designed and developed the frontend of a proposed multi-page corporate website to establish the GreenTech Innovations brand and showcase its services.</li>
+                                <li>Planned website pages and user-facing interfaces to support company information, service promotion, and a consistent user experience.</li>
+                                <li>Incorporated membership management and social features into the website design requirements.</li>
+                                <li>Considered accessibility, technical quality, and security requirements during the design and development process.</li>
+                            </ul>
+                        </div>
+
+                        <div class="project-note">
+                            <h3>3. Win to Guess — Interactive Web Game</h3>
+                            <p><strong>Area:</strong> Web Applications and Databases</p>
+                            <p><strong>Technologies:</strong> HTML, CSS, JavaScript</p>
+                            <p><strong>Development Tool:</strong> Visual Studio Code</p>
+                            <ul>
+                                <li>Developed a browser-based guessing game using HTML, CSS, and JavaScript.</li>
+                                <li>Created the user interface and implemented interactive game functionality using JavaScript.</li>
+                                <li>Applied frontend development and programming concepts to create an interactive user experience.</li>
+                            </ul>
+                        </div>
+
+                        <div class="project-note">
+                            <h3>4. Sharing Hub — Social Networking Website</h3>
+                            <p><strong>Project Area:</strong> Web Application Development</p>
+                            <p><strong>Technologies:</strong> HTML, CSS, JavaScript, Node.js, Express.js, MongoDB, JSON</p>
+                            <p><strong>Web Communication:</strong> Fetch API, XMLHttpRequest</p>
+                            <p><strong>API Testing Tool:</strong> Postman</p>
+                            <p><strong>Development Tools:</strong> Visual Studio Code, MySQL Workbench (if used for this project)</p>
+                            <ul>
+                                <li>Developed a social networking website using frontend technologies and a Node.js backend powered by Express.js.</li>
+                                <li>Used MongoDB for database functionality and JSON-formatted data for exchanging information between application components.</li>
+                                <li>Implemented frontend-to-backend communication using asynchronous requests with the Fetch API and XMLHttpRequest.</li>
+                                <li>Used Postman to test API endpoints and MySQL Workbench as a database development tool during the project.</li>
+                            </ul>
+                        </div>
+
+                        <div class="project-note">
+                            <h3>5. Star Ceramics and Tiles — Database Management System</h3>
+                            <p><strong>Area:</strong> Database Design &amp; Development</p>
+                            <p><strong>Technologies:</strong> SQL</p>
+                            <ul>
+                                <li>Designed and developed a relational database system to manage customers, employees, products, sales agents, and warehouse inventory.</li>
+                                <li>Created database tables and relationships and implemented SQL operations to insert, update, delete, and retrieve records.</li>
+                                <li>Developed a frontend interface for managing database records.</li>
+                                <li>Applied database normalisation, data validation, security considerations, testing, and technical documentation to support data accuracy and system reliability.</li>
+                            </ul>
+                        </div>
+                    </article>
+
+                    <!-- PROJECT 2 -->
+
+                    <article class="project-card" style="grid-column: 1 / -1;">
+                        <span class="project-number">PROJECT 2</span>
+                        <h3>NETWORKING, CYBERSECURITY &amp; IT INFRASTRUCTURE</h3>
+
+                        <div class="project-note">
+                            <h3>1. Multi-Branch Network Design, Configuration &amp; Security</h3>
+                            <p><strong>Project Area:</strong> Networking Management</p>
+                            <p><strong>Tools:</strong> Cisco Packet Tracer</p>
+                            <ul>
+                                <li>Designed and simulated a secure multi-branch network using Cisco Packet Tracer, applying IP addressing and OSPF routing to support inter-branch communication.</li>
+                                <li>Configured proposed IPSec site-to-site VPN connections to secure communication between branch networks.</li>
+                                <li>Applied SSH for secure remote network administration and Access Control Lists (ACLs) to control network traffic and restrict unauthorised access.</li>
+                                <li>Conducted connectivity testing, verified network operation, troubleshot connectivity issues, and performed a network risk assessment to identify potential vulnerabilities and security improvements.</li>
+                            </ul>
+                        </div>
+
+                        <div class="project-note">
+                            <h3>2. University Local Area Network (LAN) Design &amp; Evaluation</h3>
+                            <p><strong>Project Area:</strong> Networking</p>
+                            <p><strong>Tools:</strong> Cisco Packet Tracer</p>
+                            <ul>
+                                <li>Designed, implemented, and tested a university LAN using a star topology, appropriate networking devices, and communication protocols.</li>
+                                <li>Developed a network blueprint illustrating the proposed network structure and device connectivity.</li>
+                                <li>Performed connectivity testing and verification to assess communication between network devices.</li>
+                                <li>Created a network maintenance schedule and evaluated network security, performance, and scalability.</li>
+                                <li>Identified potential network improvements to support reliability, maintainability, and future expansion.</li>
+                            </ul>
+                        </div>
+
+                        <div class="project-note">
+                            <h3>3. Cybersecurity Risk Assessment, Security Policy &amp; Disaster Recovery Planning — Mercy General Hospital (MGH)</h3>
+                            <p><strong>Project Area:</strong> Cybersecurity &amp; Information Security</p>
+                            <ul>
+                                <li>Analysed cybersecurity risks and evaluated information security procedures for a healthcare organisation.</li>
+                                <li>Developed a proposed security policy and disaster recovery plan addressing access control, multi-factor authentication (MFA), encryption, network security, data backups, incident response, system recovery, and business continuity.</li>
+                                <li>Evaluated relevant cybersecurity tools, identified stakeholder responsibilities for security audits, and reviewed applicable security standards and regulatory requirements.</li>
+                                <li>Recommended improvements to strengthen data protection, reduce security risks, and improve organisational resilience and recovery preparedness.</li>
+                            </ul>
+                        </div>
+
+                        <div class="project-note">
+                            <h3>4. Cybersecurity Standards Evaluation for UAE FinTech SMEs — Mamo Pay Case Study</h3>
+                            <p><strong>Project Area:</strong> Compliance &amp; Professional Project Management</p>
+                            <ul>
+                                <li>Researched and compared SWIFT Customer Security Programme (CSP), Payment Card Industry Data Security Standard (PCI DSS), and Service Organization Control 2 (SOC 2) in the context of a UAE-based financial technology (FinTech) small or medium-sized enterprise.</li>
+                                <li>Evaluated the purpose and applicability of each framework, including financial messaging security, payment card data protection, access management, encryption, security monitoring, and incident response.</li>
+                                <li>Examined relevant UAE regulatory considerations and assessed how security standards could influence cybersecurity risk management, customer trust, compliance obligations, and business growth.</li>
+                            </ul>
+                        </div>
+
+                        <div class="project-note">
+                            <h3>5. Smart Housing Estate Design &amp; Evaluation — IoT and Integrated Smart Systems</h3>
+                            <p><strong>Project Area:</strong> Compliance &amp; Professional Project Management; Internet of Things (IoT)</p>
+                            <ul>
+                                <li>Researched and developed a proposed integrated smart-housing concept covering family homes, elderly accommodation, and starter homes.</li>
+                                <li>Evaluated smart-home platforms, IoT devices, sensors, connectivity protocols, network security measures, and solar energy integration.</li>
+                                <li>Developed proposed system configurations and cost estimates for the integrated smart-home solutions.</li>
+                                <li>Evaluated privacy and security controls and designed proposed incident-response and recovery procedures.</li>
+                                <li>Assessed the potential financial and lifestyle benefits of the proposed solutions for residents and the housing development.</li>
+                            </ul>
+                        </div>
+                    </article>
+
+                    <!-- PROJECT 3 -->
+
+                    <article class="project-card" style="grid-column: 1 / -1;">
+                        <span class="project-number">PROJECT 3</span>
+                        <h3>SOFTWARE DEVELOPMENT, DATA STRUCTURES &amp; SYSTEMS ANALYSIS</h3>
+
+                        <div class="project-note">
+                            <h3>1. Software Development Life Cycle (SDLC) — Financial Advisory System Analysis &amp; Design</h3>
+                            <p><strong>Project Area:</strong> Software Development Life Cycle (SDLC)</p>
+                            <ul>
+                                <li>Conducted a feasibility study and requirements investigation for a proposed financial advisory web application, evaluating technical solutions, project costs, risks, and project feasibility.</li>
+                                <li>Documented functional and non-functional requirements to define the system's expected features, constraints, and quality requirements.</li>
+                                <li>Developed system models using Unified Modeling Language (UML) diagrams, Entity Relationship Diagrams (ERDs), Data Flow Diagrams (DFDs), data dictionaries, and finite state machines to represent system structure, data relationships, processes, and behaviour.</li>
+                                <li>Researched and compared Agile, Spiral, Waterfall, and V-Model software development methodologies.</li>
+                                <li>Recommended an Agile approach based on the project's requirements, flexibility, risk management needs, and suitability for iterative development.</li>
+                            </ul>
+                        </div>
+
+                        <div class="project-note">
+                            <h3>2. Data Structures &amp; Algorithms (DSA) — Telecom Request Management System</h3>
+                            <p><strong>Organisation Case Study:</strong> Softnet Development Ltd.</p>
+                            <p><strong>Technology:</strong> Python (heapq library)</p>
+                            <ul>
+                                <li>Investigated the application of data structures and algorithms to efficient telecom request management, explaining Abstract Data Types (ADTs), stacks, and priority queues, including their principles and relationship to object-oriented programming.</li>
+                                <li>Implemented a priority queue in Python using the built-in heapq library to organise and process requests according to priority.</li>
+                                <li>Examined how a middleware system handles and processes requests within the telecom service context.</li>
+                                <li>Tested the implemented functionality and analysed algorithmic efficiency using Big-O notation, considering time complexity, space complexity, and performance.</li>
+                                <li>Applied data structures and algorithmic analysis to evaluate software efficiency, reliability, and maintainability.</li>
+                            </ul>
+                        </div>
+
+                        <div class="project-note">
+                            <h3>3. Operating Systems — Architecture, Resource Management &amp; Comparative Evaluation</h3>
+                            <p><strong>Project Area:</strong> Operating Systems &amp; Computer Architecture</p>
+                            <ul>
+                                <li>Researched operating system architecture, kernel types, Von Neumann architecture, CPU operation, and the evolution of operating systems.</li>
+                                <li>Analysed operating system resource management, including CPU scheduling, memory allocation, file management, input/output (I/O) device management, process synchronisation, and deadlock prevention.</li>
+                                <li>Explored Internet of Things (IoT) operating systems, embedded systems, and the relationship between operating systems and embedded firmware.</li>
+                                <li>Compared Windows, macOS, and Linux in terms of functionality, user interface design, process management, security, performance, resource requirements, advantages, limitations, and suitability for different users.</li>
+                                <li>Evaluated operating system features and practical applications to develop an understanding of system architecture, resource utilisation, and platform selection.</li>
+                            </ul>
+                        </div>
+
+                        <div class="project-note">
+                            <h3>4. Information Systems Analysis &amp; Design — System Modelling and Requirements Engineering</h3>
+                            <p><strong>Project Area:</strong> Systems Analysis, UML Modelling &amp; Database Design</p>
+
+                            <h3>Recruitment, Fitness Centre &amp; Sports Club Management Systems</h3>
+                            <ul>
+                                <li>Analysed requirements and modelled three management systems covering recruitment, fitness centre operations, and sports club management.</li>
+                                <li>Created use case, Entity Relationship (ERD), class, activity, sequence, and collaboration diagrams to represent system workflows, user interactions, data relationships, and business processes.</li>
+                                <li>Applied requirements analysis, system modelling, data validation concepts, and technical documentation to represent the proposed systems and their functional requirements.</li>
+                            </ul>
+
+                            <h3>Amazon Smart Delivery Tracking &amp; Fulfilment System — Proposed Design</h3>
+                            <ul>
+                                <li>Analysed and designed a proposed smart delivery tracking and fulfilment system intended to improve order visibility, tracking updates, delivery coordination, and order management, using Amazon as a case study.</li>
+                                <li>Identified system actors and analysed functional and non-functional requirements, features, and user interactions.</li>
+                                <li>Modelled key workflows using UML diagrams, including use case, class, activity, sequence, and collaboration diagrams, covering customer authentication, product search, order placement, payment processing, warehouse fulfilment, delivery tracking, cancellations, returns, and refunds.</li>
+                                <li>Designed an ERD and relational database model to organise users, products, orders, payments, deliveries, inventory, and tracking updates.</li>
+                                <li>Evaluated reporting, notifications, user interface design principles, GDPR, data protection, security, and ethical considerations.</li>
+                                <li>Contributed to group project planning, technical documentation, and the evaluation of system design decisions.</li>
+                            </ul>
+                        </div>
+                    </article>
+
+                    <!-- PROJECT 4 -->
+
+                    <article class="project-card" style="grid-column: 1 / -1;">
+                        <span class="project-number">PROJECT 4</span>
+                        <h3>DATA SCIENCE, MACHINE LEARNING &amp; INTERNET OF THINGS (IoT)</h3>
+
+                        <div class="project-note">
+                            <h3>1. Cancer Prediction Using Machine Learning</h3>
+                            <p><strong>Project Area:</strong> Data Science &amp; Machine Learning</p>
+                            <p><strong>Technologies:</strong> Python, Pandas, NumPy, Scikit-learn, Matplotlib, Seaborn</p>
+                            <p><strong>Development Environment:</strong> Jupyter Notebook</p>
+                            <p><strong>Algorithm:</strong> Logistic Regression</p>
+                            <ul>
+                                <li>Developed and evaluated a binary classification model using a dataset of 1,500 synthetic patient records to predict cancer diagnosis based on demographic, lifestyle, medical history, and genetic risk factors.</li>
+                                <li>Performed data preprocessing, including missing-value imputation, feature standardisation, and categorical encoding to prepare the dataset for machine learning.</li>
+                                <li>Conducted exploratory data analysis (EDA) using statistical analysis, visualisations, and correlation analysis to investigate patterns and features associated with cancer diagnosis.</li>
+                                <li>Trained and evaluated a Logistic Regression model, achieving 88% accuracy, 85% precision, and 82% recall on the evaluation data.</li>
+                                <li>Analysed model coefficients to interpret feature importance and identify potential improvements in predictive performance, fairness, and explainability.</li>
+                                <li>Recognised the limitations of synthetic data and considered the implications of model errors and fairness when interpreting results.</li>
+                            </ul>
+                        </div>
+
+                        <div class="project-note">
+                            <h3>2. Ethical Machine Learning Pipeline for Cancer Prediction</h3>
+                            <p><strong>Project Area:</strong> Machine Learning Pipelines, Model Evaluation &amp; Ethical AI</p>
+                            <p><strong>Technologies:</strong> Python, Pandas, NumPy, Scikit-learn, Matplotlib, Seaborn, Bokeh</p>
+                            <p><strong>Algorithm:</strong> Random Forest Classifier</p>
+                            <p><strong>Key Components:</strong> ColumnTransformer, automated preprocessing pipeline</p>
+                            <ul>
+                                <li>Extended the cancer prediction work by developing an automated machine learning pipeline using Scikit-learn's ColumnTransformer and Random Forest Classifier.</li>
+                                <li>Implemented missing-value imputation, numerical feature scaling, and categorical encoding within a structured preprocessing workflow to support consistent and reproducible model preparation.</li>
+                                <li>Evaluated model performance using accuracy, precision, recall, F1-score, and a confusion matrix, achieving 87.3% accuracy and an 81.7% F1-score.</li>
+                                <li>Conducted ethical and Equality, Diversity and Inclusion (EDI) analysis by examining class balance, subgroup representation, and data anonymisation considerations.</li>
+                                <li>Developed visualisations and stakeholder-focused explanations to communicate findings and highlight features associated with model predictions.</li>
+                                <li>Examined limitations relating to false negatives and underrepresented age groups, identifying considerations for model fairness, reliability, and responsible interpretation.</li>
+                            </ul>
+                        </div>
+
+                        <div class="project-note">
+                            <h3>3. IoT-Based Healthcare Monitoring System</h3>
+                            <p><strong>Project Area:</strong> Internet of Things (IoT), Embedded Systems &amp; Healthcare Technology</p>
+                            <p><strong>Hardware:</strong> Arduino Uno, MAX30102 Sensor, OLED Display</p>
+                            <p><strong>Tools:</strong> Arduino IDE, Sensor Libraries</p>
+                            <ul>
+                                <li>Researched IoT architectures, frameworks, development tools, hardware components, and APIs, evaluating their relevance to the software development lifecycle and real-world applications.</li>
+                                <li>Designed and iteratively developed a healthcare-monitoring prototype using an Arduino Uno, MAX30102 sensor, and OLED display to measure and display heart rate and blood oxygen saturation (SpO₂).</li>
+                                <li>Integrated hardware components and software, tested system functionality, debugged issues, and refined sensor calibration through iterative development.</li>
+                                <li>Evaluated the prototype against its original requirements, considering performance, usability, portability, and cost-effectiveness.</li>
+                                <li>Identified system limitations and proposed future enhancements, including remote monitoring, mobile application integration, cloud-based data storage, and improved security.</li>
+                            </ul>
+
+                            <h3>IoT project stages:</h3>
+                            <ul>
+                                <li>Research and planning: Investigated IoT architectures, frameworks, tools, hardware, APIs, and their impact on the software development lifecycle.</li>
+                                <li>Design and development: Designed and developed the Arduino-based heart-rate and SpO₂ monitoring prototype.</li>
+                                <li>Testing and evaluation: Tested hardware/software integration, debugged issues, made iterative improvements, evaluated performance, and identified limitations and future enhancements.</li>
+                            </ul>
+                        </div>
+                    </article>
+
+                    <!-- PROJECT 5 -->
+
+                    <article class="project-card" style="grid-column: 1 / -1;">
+                        <span class="project-number">PROJECT 5</span>
+                        <h3>IT PROJECT MANAGEMENT, BUSINESS ANALYSIS &amp; RESEARCH</h3>
+
+                        <div class="project-note">
+                            <h3>1. Data Science for Business Process Support &amp; Environmental Conservation</h3>
+                            <p><strong>Project Area:</strong> Business Process Support, Data Analytics &amp; Environmental Planning</p>
+                            <p><strong>Case Study:</strong> Enviro Wise — Environmental Planning NGO</p>
+                            <p><strong>Dataset:</strong> Critical_Habitats</p>
+                            <p><strong>Technologies &amp; Methods:</strong> Microsoft Excel, Weka, Descriptive Statistics, Correlation and Covariance Analysis, Regression Analysis, K-Means Clustering, Random Forest, Data Visualisation, Data Ethics and Cybersecurity</p>
+                            <ul>
+                                <li>Conducted a data-driven case study using the Critical_Habitats dataset to investigate how data science can support business processes, habitat conservation planning, resource allocation, and evidence-based decision-making for an environmental planning organisation.</li>
+                                <li>Investigated the role of data science technologies in organisational operations, including data management, statistical analysis, predictive modelling, visualisation, and resource allocation.</li>
+                                <li>Used Microsoft Excel to perform descriptive statistical analysis, correlation and covariance analysis, regression analysis, and visualisation of dataset patterns and relationships.</li>
+                                <li>Applied Weka to explore K-Means clustering and Random Forest modelling, examining habitat size, acreage, boundary characteristics, data patterns, and potential outliers.</li>
+                                <li>Evaluated analytical findings and model outputs to develop recommendations for prioritising conservation areas, allocating resources, improving monitoring and reporting, engaging stakeholders, and supporting long-term environmental planning.</li>
+                                <li>Assessed the benefits and limitations of data-driven processes in terms of decision-making accuracy, operational efficiency, cost-effectiveness, predictive capability, data quality, and model reliability.</li>
+                                <li>Examined social, legal, ethical, and security considerations, including privacy, data misuse, licensing and regulatory compliance, cybersecurity threats, data accessibility, algorithmic fairness, transparency, accountability, and public trust.</li>
+                                <li>Proposed mitigation measures such as data validation, access controls, encryption, staff awareness, compliance reviews, transparent reporting, and regular model updates. Recommended future enhancements including real-time monitoring, interactive dashboards, and automated reporting.</li>
+                            </ul>
+                        </div>
+
+                        <div class="project-note">
+                            <h3>2. Planning a Computing Project — Cloud Computing for Environmental Data Analytics</h3>
+                            <p><strong>Project Title:</strong> Harnessing Cloud Computing for the Analysis of Extensive Environmental Datasets</p>
+                            <p><strong>Case Study:</strong> GreenTech Innovations — Sustainable Energy Organisation</p>
+                            <p><strong>Technologies &amp; Methods:</strong> Cloud Computing Research (AWS, Microsoft Azure and Google Cloud options), Qualitative and Quantitative Research, Online Surveys, Expert Interviews, Focus Group Discussions, Secondary Research, Feasibility Analysis, SWOT Analysis, Agile Project Management, Work Breakdown Structure (WBS), Risk Management, Budgeting, Quality Assurance, Stakeholder Management, Project Scheduling, Data Security and Integration</p>
+                            <ul>
+                                <li>Planned and researched a proposed computing project evaluating cloud computing for processing large environmental datasets collected through IoT devices and environmental monitoring systems.</li>
+                                <li>Investigated how cloud infrastructure could support environmental data management, renewable energy research, advanced analytics, and data-driven decision-making, considering scalability, performance, cost-effectiveness, security, privacy, and system integration.</li>
+                                <li>Designed a mixed-method research approach combining qualitative interviews and focus group discussions with quantitative surveys. The research plan included 10 cloud-computing and environmental-data experts and a survey targeting 100 professionals, supported by secondary research from academic papers, reviews, and case studies.</li>
+                                <li>Examined reported research findings, including an average cloud-computing effectiveness rating of 4.2/5, security concerns among 66% of respondents, data integration concerns among 44%, connectivity issues among 40%, and average security and privacy confidence of 3.07/5. Findings also indicated that 84% of employees understood cloud-computing concepts and 60% were optimistic about its potential benefits.</li>
+                                <li>Evaluated the implications of the findings for GreenTech Innovations, identifying opportunities to improve data processing, operational efficiency, resource allocation, collaboration, and sustainable-energy decision-making.</li>
+                                <li>Assessed research methods and their limitations, synthesised primary and secondary research, and developed recommendations covering encryption, access controls, secure data handling, system compatibility, connectivity, infrastructure investment, staff training, and stakeholder engagement.</li>
+                                <li>Developed a structured project plan using Agile principles, covering objectives and scope, feasibility, SWOT analysis, deliverables, WBS, resource allocation, stakeholder and communication plans, quality management, risk assessment, scheduling, milestones, and a proposed budget of $1 million.</li>
+                                <li>Planned a 12-month implementation roadmap covering cloud infrastructure setup, data migration, analytics tool integration, staff training, testing, monitoring, quality assurance, and final handover.</li>
+                                <li>Identified risks including security breaches, data loss, cloud service downtime, integration problems, vendor lock-in, budget overruns, scalability issues, and resistance to change, with corresponding mitigation strategies.</li>
+                                <li>Maintained a project logbook documenting progress, deadlines, risks, challenges, changes in direction, lessons learned, and next steps. Recorded planning activities relating to project initiation, feasibility assessment, proposed infrastructure setup, and the beginning of data migration.</li>
+                                <li>Documented challenges involving security and privacy, cloud-computing skills gaps, and integration of data from multiple sensors and IoT devices. Proposed responses included staff training, stronger encryption and access controls, and data integration tools such as Talend.</li>
+                                <li>Reflected on adaptability, teamwork, proactive risk management, communication, and continuous improvement in planning a project aligned with organisational needs.</li>
+                            </ul>
+                            <p><strong>Outcome:</strong> Produced a research-based evaluation and structured implementation plan for the proposed adoption of cloud computing at GreenTech Innovations, with recommendations intended to support secure, scalable, and efficient environmental data analytics and better-informed sustainable-energy decisions.</p>
+                        </div>
+
+                        <div class="project-note">
+                            <h3>3. Professional Practice — Business Analysis, Team Leadership &amp; Professional Development</h3>
+                            <p><strong>Project Title:</strong> Innovative Lyallpur Expo</p>
+                            <p><strong>Organisation Scenario:</strong> DAWAT PAKISTAN Events Management Company; The University of Faisalabad (TUF)</p>
+                            <p><strong>Methods &amp; Skills:</strong> Business Analysis, Proposal Development, Project Planning, Stakeholder Management, Team Leadership, Team Dynamics, Critical Thinking, Problem-Solving, Risk Management, Quality Assurance, Event Planning, Continuing Professional Development (CPD), Motivational Theories and Performance Evaluation</p>
+                            <ul>
+                                <li>Contributed to a group business-analysis project to develop a conference and event proposal pack for the Innovative Lyallpur Expo. Served as team leader for a junior business-analyst team in the academic project scenario.</li>
+                                <li>Contributed to strategic planning, project objectives and deliverables, client requirements, task allocation, timelines, proposal quality, resource allocation, budgeting, contingency planning, and project-risk considerations.</li>
+                                <li>Evaluated stakeholder communication and requirements-gathering approaches, including meetings, interviews, workshops, feedback, and collaborative discussions, to align the proposal with client objectives.</li>
+                                <li>Applied critical thinking, research, problem analysis, and evaluation of market information, attendance projections, financial considerations, and alternative solutions to develop practical event-planning recommendations. The proposed Expo included specialist workshops, social activities, and varied presentation formats to encourage participation.</li>
+                                <li>Analysed team structure and responsibilities across four roles: leader, manager, supervisor, and marketing specialist. Evaluated task delegation, individual strengths, collaboration, communication, conflict resolution, time management, adaptability, peer feedback, and shared decision-making.</li>
+                                <li>Reflected on leadership and personal contribution, identifying strengths in strategic planning, team coordination, stakeholder engagement, decision-making, quality control, and deadline management, alongside improvement opportunities in inclusive decision-making, proactive communication, structured feedback, peer reviews, and collaborative risk identification.</li>
+                                <li>Evaluated the role of Continuing Professional Development (CPD) in improving business analysis, leadership, communication, negotiation, strategic planning, financial awareness, event-management knowledge, stakeholder engagement, and problem-solving.</li>
+                                <li>Researched motivational theories, including Maslow's Hierarchy of Needs, Herzberg's Two-Factor Theory, Expectancy Theory, Goal-Setting Theory, Self-Determination Theory, Equity Theory, Social Cognitive Theory, and McClelland's Needs Theory, to understand how recognition, fair treatment, clear goals, autonomy, skill development, and career progression can influence motivation and team performance.</li>
+                                <li>Developed a professional development plan outlining responsibilities, performance objectives, required skills, and development actions. These included timely proposal submission, client satisfaction, teamwork, financial viability, professional training, mentorship, industry research, networking, and continuous learning.</li>
+                                <li>Proposed motivational strategies involving recognition of achievements, opportunities to apply new skills, alignment of individual development goals with project objectives, collaborative learning, and clear professional growth pathways.</li>
+                                <li>Evaluated CPD effectiveness using relevance to job responsibilities, learning quality, measurable outcomes, practical application, reflection and self-assessment, impact on professional practice, and feedback from colleagues, clients, and stakeholders. Recommended surveys, interviews, assessments, performance reviews, and measurable objectives to monitor progress and support continuous improvement.</li>
+                            </ul>
+                            <p><strong>Outcome:</strong> Developed a business and event proposal pack and evaluated approaches to project planning, stakeholder engagement, leadership, team performance, professional reflection, employee motivation, and career development.</p>
+                        </div>
+
+                        <div class="project-note">
+                            <h3>4. Computing Research Project — AI-Based Ransomware Detection in Financial Services</h3>
+                            <p><strong>Case Study:</strong> Rio Grande Securities Ltd (RGS)</p>
+                            <p><strong>Research Focus:</strong> Artificial Intelligence (AI), Machine Learning (ML), Ransomware Detection and Cybersecurity</p>
+                            <p><strong>Technologies &amp; Methods:</strong> Microsoft Excel, Google Forms, Zoom, Survey Design, Semi-Structured Interviews, Quantitative Data Analysis, Thematic Analysis, Data Visualisation, Mixed-Methods Research, Technology Acceptance Model (TAM), Kaggle WannaCry-Related Dataset</p>
+                            <ul>
+                                <li>Conducted a computing research project investigating how AI and ML could improve ransomware detection and prevention in the financial services sector, using Rio Grande Securities Ltd (RGS) as the organisational case study.</li>
+                                <li>Developed a research proposal with a defined research question and hypothesis, reviewed academic literature and cybersecurity reports, and applied a pragmatist research philosophy and the Technology Acceptance Model (TAM) to examine AI adoption, perceived usefulness, ease of use, and implementation challenges.</li>
+                                <li>Designed primary research using online surveys and semi-structured interviews with IT and cybersecurity professionals to investigate existing security practices, perceptions of AI-based security tools, and barriers to adoption.</li>
+                                <li>Analysed survey responses in Microsoft Excel using summaries, percentages, charts, and visualisations. Applied thematic analysis to interview responses to identify recurring concerns, including implementation costs, staff training, data privacy, and trust in AI-driven decisions.</li>
+                                <li>Conducted secondary research using academic publications, cybersecurity reports, case studies, and a WannaCry-related ransomware dataset obtained through Kaggle.</li>
+                                <li>Used Excel to examine transaction values, network activity, protocol and port information, prediction labels, distributions, and correlations. Compared secondary research findings with primary research results to identify patterns and limitations.</li>
+                                <li>Critically evaluated research reliability, relevance, ethics, and methodological limitations, including sample size, potential response bias, and the dataset's focus on a specific ransomware incident.</li>
+                                <li>Synthesised findings into recommendations for RGS on exploring AI-supported cybersecurity services, improving employee training, maintaining human oversight, strengthening data protection, and evaluating AI tools with broader datasets and controlled testing.</li>
+                                <li>Identified future research opportunities involving real-time detection, more diverse ransomware datasets, advanced AI techniques, and more representative participant samples.</li>
+                            </ul>
+                            <p><strong>Outcome:</strong> Produced a research-based evaluation of AI-supported ransomware detection in financial services, combining primary research, secondary data analysis, and recommendations for responsible cybersecurity technology adoption.</p>
+                        </div>
+                    </article>
+
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- EDUCATION VIEW -->
+
+        <section class="section page-view" id="education">
+            <div class="container">
+
+                <div class="section-heading">
+                    <p class="eyebrow">Education</p>
+                    <h2>Academic background</h2>
+                    <p>
+                        My educational qualifications and current studies.
+                    </p>
+                </div>
+
+                <div class="education-list">
+
+                    <article class="education-item">
+                        <span class="education-date">
+                            In progress · Expected April 2027
+                        </span>
+
+                        <h3>BSc (Hons) Information Technology — Top-Up</h3>
+
+                        <p>
+                            Middlesex University Dubai · Dubai, UAE
+                        </p>
+                    </article>
+
+                    <article class="education-item">
+                        <span class="education-date">2023–2025</span>
+
+                        <h3>Higher National Diploma in Computing</h3>
+
+                        <p>
+                            The University of Faisalabad ·
+                            Faisalabad, Pakistan
+                        </p>
+                    </article>
+
+                    <article class="education-item">
+                        <span class="education-date">2021–2023</span>
+
+                        <h3>FSc Pre-Medical</h3>
+
+                        <p>Punjab College · Pakistan</p>
+                    </article>
+
+                    <article class="education-item">
+                        <span class="education-date">2019–2021</span>
+
+                        <h3>Matriculation in Science</h3>
+
+                        <p>Resource Academia · Pakistan</p>
+                    </article>
+
+                </div>
+
+            </div>
+        </section>
+
+        <!-- CONTACT VIEW -->
+
+        <section class="section section-light page-view" id="contact">
+            <div class="container">
+
+                <div class="contact-box">
+                    <p class="eyebrow">Get in Touch</p>
+
+                    <h2>Let's connect</h2>
+
+                    <p>
+                        I welcome opportunities to learn, collaborate
+                        and develop my skills in information technology.
+                        Feel free to contact me regarding relevant
+                        entry-level opportunities.
+                    </p>
+
+                    <div class="button-row"
+                         style="justify-content: center;">
+
+                        <!-- Replace this with your real email -->
+                        <a class="button button-primary"
+                           href="mailto:YOUR-EMAIL@example.com">
+                            Email Me
+                        </a>
+
+                        <a class="button button-outline"
+                           href="https://github.com/noorfatima9292"
+                           target="_blank"
+                           rel="noopener noreferrer">
+                            GitHub Profile ↗
+                        </a>
+
+                    </div>
+
+                    <p class="contact-details">
+                        Email:
+                        <a href="mailto:YOUR-EMAIL@example.com">
+                            YOUR-EMAIL@example.com
+                        </a>
+                    </p>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER: SHOWN ONLY ON HOME -->
+
+    <footer class="home-footer active" id="siteFooter">
+        <div class="container">
+            <p>
+                &copy; <span id="currentYear"></span>
+                Fatima Fayyaz. IT Portfolio.
+            </p>
+        </div>
+    </footer>
+
+    <!-- SECTION NAVIGATION -->
+
+    <script>
+        const menuButton = document.getElementById("menuButton");
+        const navLinks = document.getElementById("navLinks");
+        const pages = document.querySelectorAll(".page-view");
+        const navigationLinks = document.querySelectorAll("[data-page]");
+        const siteFooter = document.getElementById("siteFooter");
+
+        // Display one section and hide all the others.
+        function showPage(pageName) {
+            const selectedPage = document.getElementById(pageName);
+
+            // Ignore invalid section names.
+            if (
+                !selectedPage ||
+                !selectedPage.classList.contains("page-view")
+            ) {
+                return;
+            }
+
+            // Hide all sections.
+            pages.forEach(function (page) {
+                page.classList.remove("active");
+            });
+
+            // Display the selected section.
+            selectedPage.classList.add("active");
+
+            // Highlight the selected navigation link.
+            navigationLinks.forEach(function (link) {
+                const isActive = link.dataset.page === pageName;
+
+                link.classList.toggle("active-link", isActive);
+
+                if (isActive) {
+                    link.setAttribute("aria-current", "page");
+                } else {
+                    link.removeAttribute("aria-current");
+                }
+            });
+
+            // Show the footer only on the Home view.
+            siteFooter.classList.toggle(
+                "active",
+                pageName === "home"
+            );
+
+            // Close the mobile menu after navigation.
+            navLinks.classList.remove("open");
+            menuButton.setAttribute("aria-expanded", "false");
+            menuButton.textContent = "Menu";
+
+            // Start the selected view at the top.
+            window.scrollTo(0, 0);
+        }
+
+        // Handle navigation and homepage buttons.
+        navigationLinks.forEach(function (link) {
+            link.addEventListener("click", function (event) {
+                event.preventDefault();
+
+                const pageName = link.dataset.page;
+
+                showPage(pageName);
+
+                // Update the URL so sections can be bookmarked.
+                if (window.location.hash !== "#" + pageName) {
+                    history.pushState(null, "", "#" + pageName);
+                }
+            });
+        });
+
+        // Open and close the mobile menu.
+        menuButton.addEventListener("click", function () {
+            const menuIsOpen = navLinks.classList.toggle("open");
+
+            menuButton.setAttribute("aria-expanded", menuIsOpen);
+            menuButton.textContent = menuIsOpen ? "Close" : "Menu";
+        });
+
+        // Support browser Back and Forward buttons.
+        window.addEventListener("popstate", function () {
+            const pageName = window.location.hash.substring(1) || "home";
+
+            showPage(
+                document.getElementById(pageName) ? pageName : "home"
+            );
+        });
+
+        // Open the correct section when a bookmarked URL is visited.
+        const initialPage = window.location.hash.substring(1) || "home";
+
+        showPage(
+            document.getElementById(initialPage) ? initialPage : "home"
+        );
+
+        // Update the footer year automatically.
+        document.getElementById("currentYear").textContent =
+            new Date().getFullYear();
+    </script>
+
+</body>
+</html>
